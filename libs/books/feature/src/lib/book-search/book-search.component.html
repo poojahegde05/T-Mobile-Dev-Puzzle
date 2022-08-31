@@ -7,7 +7,10 @@
       placeholder="Search for books to add to your reading list"
       formControlName="term"
     />
-    <button mat-icon-button matSuffix>
+    <button 
+    mat-icon-button matSuffix
+    [attr.aria-label]="'Search for Book'"
+    >
       <mat-icon>search</mat-icon>
     </button>
   </mat-form-field>
