@@ -3,32 +3,37 @@ import { ReplaySubject } from 'rxjs';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { provideMockStore } from '@ngrx/store/testing';
 import { HttpTestingController } from '@angular/common/http/testing';
-
-import { SharedTestingModule } from '@tmo/shared/testing';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { createBook, SharedTestingModule } from '@tmo/shared/testing';
 import { ReadingListEffects } from './reading-list.effects';
 import * as ReadingListActions from './reading-list.actions';
+import { Component } from '@angular/core';
 
 describe('ToReadEffects', () => {
   let actions: ReplaySubject<any>;
   let effects: ReadingListEffects;
   let httpMock: HttpTestingController;
+  
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [SharedTestingModule],
+      imports: [SharedTestingModule,
+        MatSnackBarModule],
       providers: [
         ReadingListEffects,
         provideMockActions(() => actions),
-        provideMockStore()
+        provideMockStore(),
+        {provide:MatSnackBar}
       ]
     });
 
     effects = TestBed.inject(ReadingListEffects);
     httpMock = TestBed.inject(HttpTestingController);
+    
   });
 
   describe('loadReadingList$', () => {
-    it('should work', done => {
+    it('should load reading list', done => {
       actions = new ReplaySubject();
       actions.next(ReadingListActions.init());
 
@@ -42,4 +47,6 @@ describe('ToReadEffects', () => {
       httpMock.expectOne('/api/reading-list').flush([]);
     });
   });
+
+  
 });

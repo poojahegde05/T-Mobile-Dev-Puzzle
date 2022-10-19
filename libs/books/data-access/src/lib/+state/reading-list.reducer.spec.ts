@@ -38,7 +38,7 @@ describe('Books Reducer', () => {
       });
 
       const result: State = reducer(state, action);
-      expect(result.ids.length).toEqual(2);
+      expect(result.ids.length).toEqual(1);
     });
 
     it('failedRemoveFromReadingList should undo book removal from the state', () => {
@@ -47,7 +47,7 @@ describe('Books Reducer', () => {
       });
 
       const result: State = reducer(state, action);
-      expect(result.ids.length).toEqual(2);
+      expect(result.ids.length).toEqual(3);
     });
   });
 
