@@ -1,4 +1,4 @@
-<form [formGroup]="searchForm">
+<form [formGroup]="searchForm" (submit)="searchBooks()">
   <mat-form-field floatLabel="never">
     <input
       autoFocus
@@ -6,7 +6,6 @@
       type="search"
       placeholder="Search for books to add to your reading list"
       formControlName="term"
-      (keyup)="searchBooks()"
     />
     <button 
     mat-icon-button matSuffix
@@ -36,8 +35,8 @@
           <p [innerHTML]="b.description"></p>
           <div>
             <button
-              id="testbutton1"
               mat-flat-button
+              data-testing="button-search-item"
               color="primary"
               (click)="addBookToReadingList(b)"
               [disabled]="b.isAdded"

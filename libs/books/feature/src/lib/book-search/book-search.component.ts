@@ -50,13 +50,7 @@ export class BookSearchComponent implements OnInit {
 
   addBookToReadingList(book: Book) {
     this.store.dispatch(addToReadingList({ book }));
-    const snackBarRef = this._snackBar.open("Book added","Undo", { duration: 2000 }); 
-     
-       snackBarRef
-       .onAction()
-       .pipe(take(1))
-       .subscribe(() => this.store.dispatch(undoAddToReadingList({ book })));
-   }
+    }
 
   searchExample() {
     this.searchForm.controls.term.setValue('javascript');
@@ -64,15 +58,11 @@ export class BookSearchComponent implements OnInit {
   }
 
   searchBooks() {
-    const regex = new RegExp("^[a-zA-Z0-9 ]+$");
     if (this.searchForm.value.term) {
-
-      if (regex.test(this.searchForm.value.term)) {
       this.store.dispatch(searchBooks({ term: this.searchTerm }));
-    } 
-    }else {
+    } else {
       this.store.dispatch(clearSearch());
     }
-  }
+  } 
  
-}
+  }
