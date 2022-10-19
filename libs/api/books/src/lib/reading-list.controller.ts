@@ -22,7 +22,7 @@ export class ReadingListController {
   }
   @Put('/reading-list/:id/finished')
   async markAsRead(@Param() params, @Body() item: ReadingListItem) {
-    return await this.readingList.markAsRead(params.id, item);
+    return await this.readingList.markAsRead( item,item.finishedDate);
   }
   }
 

@@ -15,7 +15,7 @@
   
     <button
       mat-icon-button
-      id="testbutton3"
+      data-testing="button-finish-item"
       color="warn"
       [attr.aria-label]="'Mark ' + b.title + ' as read in reading list'"
       (click)="onMarkedAsRead(b)"
@@ -25,8 +25,8 @@
     </button>
     <div>
       <button
-        id="testbutton2"
         mat-icon-button
+        data-testing="button-read-item"
         color="warn"
         [attr.aria-label]="'Remove ' + b.title + ' from reading list'"
         (click)="removeFromReadingList(b)"

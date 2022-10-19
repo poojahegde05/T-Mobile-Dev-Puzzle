@@ -16,10 +16,6 @@ export class ReadingListComponent {
     this.store.dispatch(removeFromReadingList({ item }));
   }
   onMarkedAsRead(item) {
-    const readStatus = item.finished ? 'unread' : 'read';
-    const message = `${item.title} marked as ${readStatus}`;
-    this.store.dispatch(markAsRead({ item }));
-
-    
+    this.store.dispatch(markAsRead({ item :{...item,finishedDate:new Date().toISOString()}}));
   }
 }
