@@ -36,12 +36,13 @@
           <div>
             <button
               mat-flat-button
+              data-testing="button-search-item"
               color="primary"
               (click)="addBookToReadingList(b)"
-              [disabled]="b.isAdded"
-            >
-              Want to Read
-            </button>
+              [disabled]="b.isAdded">
+
+              {{ b.isFinished ? 'Finished' : 'Want to Read' }}
+              </button>
           </div>
         </div>
       </div>
