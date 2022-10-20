@@ -39,6 +39,7 @@
               color="primary"
               (click)="addBookToReadingList(b)"
               [disabled]="b.isAdded"
+              [attr.aria-label]="'Want to Read book'+b.title"
             >
               Want to Read
             </button>

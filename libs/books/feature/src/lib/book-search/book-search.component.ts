@@ -17,8 +17,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./book-search.component.scss']
 })
 export class BookSearchComponent implements OnInit {
-  books$: Observable<ReadingListBook[]>;
-
+  books$: Observable<ReadingListBook[]>= this.store.select(getAllBooks);;
+  
   searchForm = this.fb.group({
     term: ''
   });
@@ -33,9 +33,6 @@ export class BookSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
-      this.books$ = this.store.select(getAllBooks);
-    
   }
 
   formatDate(date: void | string) {
