@@ -6,6 +6,7 @@ form {
 
 .mat-form-field {
   width: 100%;
+ 
 }
 
 .book-grid {
@@ -24,7 +25,7 @@ form {
 
 .book--title {
   font-weight: 500;
-  color: $gray80;
+  color: $gray10;
   margin-bottom: $spacing-xs;
 }
 
@@ -68,5 +69,6 @@ form {
   justify-content: center;
   min-height: 50vh;
   font-size: 1.5rem;
-  color: $gray40;
+  color:#ff4081;
 }
+
